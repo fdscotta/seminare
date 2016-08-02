@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_facturacion</name>
+    <creationDate>2014-09-30</creationDate>
+    <copyright>Copyright (C) 2014. Todos los derechos reservados.</copyright>
+    <license>Licencia Pública General GNU versión 2 o posterior. Consulte LICENSE.txt</license>
+    <author>Andrés Müller</author>
+    <authorEmail>andres.muller99@gmail.com</authorEmail>
+    <authorUrl>http://</authorUrl>
+    <version>1.0.0</version>
+    <description>Componente para realizar facturacion</description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>facturacion.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>assets</folder>
+    </files>
+    <languages folder="site">
+        
+			<language tag="en-GB">language/en-GB/en-GB.com_facturacion.ini</language>
+			<language tag="es-ES">language/es-ES/es-ES.com_facturacion.ini</language>
+    </languages>
+    <administration>
+        <menu img="components/com_facturacion/assets/images/s_com_facturacion.png" >COM_FACTURACION</menu>
+        <submenu>
+            
+			<menu link="option=com_facturacion&amp;view=facturacions" view="facturacions" img="components/com_facturacion/assets/images/s_facturacions.png" alt="Facturacion/Facturacions">COM_FACTURACION_TITLE_FACTURACIONS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>facturacion.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+            <folder>language</folder>
+        </files>
+        <languages folder="administrator">
+            
+			<language tag="en-GB">language/en-GB/en-GB.com_facturacion.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_facturacion.sys.ini</language>
+			<language tag="es-ES">language/es-ES/es-ES.com_facturacion.ini</language>
+			<language tag="es-ES">language/es-ES/es-ES.com_facturacion.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="search" plugin="facturacion"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

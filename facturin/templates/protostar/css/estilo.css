@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+table{
+    margin: 0px auto 20px auto;
+    border-collapse: collapse;
+}
+
+table tbody tr td, table tfoot tr td, table thead tr th{
+    padding: 6px;
+    vertical-align: top;
+}
+
+table tfoot tr td{
+    text-align: right;
+}
+
+table.lista tbody tr td{
+    border-bottom: 1px solid #ddd;
+}
+
+table.lista thead th, table.formulario thead th{
+    color: #369;
+    border-bottom: 1px solid #CCC;
+}
+
+table.lista tfoot td, table.formulario tfoot td{
+    color: #369;
+}
+
+.lista {
+    width: 100%;
+}
+
+#buscar_articulo {
+    margin: 0px 0px 0px 5px;
+}
+
+.buscarArt .itemContainer {
+    width: 95%!important;
+}
+
+li.even.typeTextfield.group1 {
+    display: inline-block;
+    width: 100%;
+}
+div.catItemExtraFields ul li span.catItemExtraFieldsLabel, div.genericItemExtraFields ul li span.genericItemExtraFieldsLabel {
+    width:50%;
+}
+
+
+
+
+
+/*********** Poup up confirmar venta ***********/
+
+#popup {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+
+.content-popup {
+    margin:0px auto;
+    margin-top:120px;
+    position:relative;
+    padding:10px;
+    width:500px;
+    min-height:250px;
+    border-radius:4px;
+    background-color:#FFFFFF;
+    box-shadow: 0 2px 5px #666666;
+}
+
+.content-popup h2 {
+    color:#48484B;
+    border-bottom: 1px solid #48484B;
+    margin-top: 0;
+    padding-bottom: 4px;
+}
+
+.popup-overlay {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display:none;
+    background-color: #777777;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+}
+
+#popup .total_compra h4{
+    display:inline-block;
+}
+
+h4#totalFacturacion_confirmar {
+    margin-left: 10px;
+}
+#popup .monto_vuelto .control-group.mvuelto {
+    display:inline-block;
+}
+
+div#vuelto_venta label {
+    display:inline-block;
+}
+div#vuelto_venta {
+    margin-left: 10px;
+    display:none;
+}
+#popup .confirmar {
+    text-align:right;
+}
+
+#totalTitulo h3{
+    display: inline-block;
+}
+/*************************************************/
