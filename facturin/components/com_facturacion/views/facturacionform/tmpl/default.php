@@ -91,7 +91,7 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
     });
 
 </script>
-
+<?php echo $this->usuarios;?>
 <div class="facturacion-edit front-end-edit">
     <?php if (!empty($this->item->id)): ?>
         <h1>Editar <?php echo $this->item->id; ?></h1>
