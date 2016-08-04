@@ -27,16 +27,16 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="/yoo_organic_demo/templates/yoo_organic/js/facturacion.js" type="text/javascript"></script>
-<script src="/yoo_organic_demo/templates/yoo_organic/js/script.js" type="text/javascript"></script>
-<script language="javascript" type="text/javascript" src="/yoo_organic_demo/templates/yoo_organic/js/jquery-1.3.2.min.js"></script>
-<script language="javascript" type="text/javascript" src="/yoo_organic_demo/templates/yoo_organic/js/jquery.validate.1.5.2.js"></script>
-<link href="/yoo_organic_demo/templates/yoo_organic/css/estilo.css" rel="stylesheet" type="text/css" />
+<script src="/facturin/templates/protostar/js/facturacion.js" type="text/javascript"></script>
+<script src="/facturin/templates/protostar/js/script.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery.validate.1.5.2.js"></script>
+<link href="/facturin/templates/protostar/css/estilo.css" rel="stylesheet" type="text/css" />
 
 <!-- validador 
 
-  <script language="javascript" type="text/javascript" src="/yoo_organic_demo/templates/yoo_organic/js/jquery-validate.js"></script>
-<script language="javascript" type="text/javascript" src="/yoo_organic_demo/templates/yoo_organic/js/jquery-validate.min.js"></script>
+  <script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery-validate.js"></script>
+<script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery-validate.min.js"></script>
 <script type="text/javascript">
   
   // When the browser is ready...
@@ -107,7 +107,7 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
     <label for="id_articulo" class="col-lg-2 control-label">Código del Artículo</label>
 	<div class="controls">
     <input type="text" class="form-control" name="id_articulo" id="id_articulo" placeholder="Introduce el código del artículo">
-  	<input type="button" class="validate btn btn-primary" id="buscar_articulo" name="buscar_articulo" onclick="Javascript:crearNuevaVentana('http://localhost/yoo_organic_demo/en/buscar');" value="Buscar"/>
+  	<input type="button" class="validate btn btn-primary" id="buscar_articulo" name="buscar_articulo" onclick="Javascript:crearNuevaVentana('http://localhost/facturin/en/buscar');" value="Buscar"/>
 	<div id="sinResultados" class="alert alert-danger" role="alert">
 		<strong for="id_articulo">El codigo ingresado no pertenece a ningun articulo</strong>
 	</div>
