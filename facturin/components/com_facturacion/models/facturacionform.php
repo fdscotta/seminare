@@ -286,19 +286,13 @@ class FacturacionModelFacturacionForm extends JModelForm
 
 	// Reset the query using our newly populated query object.
 	    $db->setQuery($query);
-        
-        $rows = $db->loadObjectList();
 
-        $options[] = JHTML::_('select.option','','Seleccione uno...');
-        foreach ($rows as $key => $value) {
-            $options[] = JHTML::_('select.option', $value->id, JText::_($value->name));     
-        }
 	// Load the results as a list of stdClass objects (see later for more options on retrieving data).
-	   // $results = $db->loadAssocList();
+	    $results = $db->loadAssocList();
 
-	    if($rows){
-			return  JHTML::_('select.genericlist', $options, 'jform[category]', 'class = "nourritures"', 'value','text', 'Seleccione uno...' );	    
-		} 
+	    if($results){
+			return $results;
+	    } 
 
 	}      
 }

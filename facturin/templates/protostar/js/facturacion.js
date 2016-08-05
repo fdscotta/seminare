@@ -48,7 +48,7 @@ if(cantidad !== ''){
 		if(data==""){
 			var valorCampo = $("#id_articulo").val();
 			$('#frm_facturacion')[0].reset();
-			sinResultado(valorCampo);	
+			//sinResultado(valorCampo);	
 		} else {
 			conResultado(data);		  
 		}
