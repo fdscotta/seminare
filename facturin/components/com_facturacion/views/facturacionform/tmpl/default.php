@@ -220,12 +220,11 @@ ventana.focus( );
     <div class="content-popup">
         <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
         <div>
-           <h2>Metodo de Pago</h2>
-				<div class="total_compra">
+ 				<div class="total_compra">
 					<h4>Total de la compra: </h4><h4 id="totalFacturacion_confirmar"></h4>
 <!--					<input type="number" class="form-control" id="totalFacturacion_confirmar"  name="totalFacturacion_confirmar" value="" disabled> -->
 				</div>
-				<div class="control-group">
+<!-- 				<div class="control-group">
 					<label for="tipo_pago" class="col-lg-2 control-label">Tipo de pago: </label>
 					<div class="controls">
 					<select name="tipo_pago">
@@ -245,7 +244,7 @@ ventana.focus( );
 						<label class="col-lg-2 control-label">Vuelto: $</label><label class="col-lg-2 control-label" id="vuelto">0,00</label>
 					</div> 
 				</div> 
-				<div class="confirmar">
+ -->				<div class="confirmar">
 					<button class="validate btn btn-primary" id="confirmar_pago" name="confirmar_pago" value="Confirmar">Confirmar</button>
 					<button class="validate btn btn-primary" id="cancelar_pago" name="cancelar_pago" value="Cancelar">Cancelar</button>
 				</div>
