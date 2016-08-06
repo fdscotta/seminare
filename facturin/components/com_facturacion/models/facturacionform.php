@@ -290,9 +290,10 @@ class FacturacionModelFacturacionForm extends JModelForm
 	// Load the results as a list of stdClass objects (see later for more options on retrieving data).
 	    $results = $db->loadAssocList();
 
-	    if($results){
-			return $results;
-	    } 
+	    if($rows){
+			return  JHTML::_('select.genericlist', $options, 'user_fac', 'class = "user_fac"', 'value','text', 'Seleccione uno...' );	    
+		} 
+
 
 	}      
 }
