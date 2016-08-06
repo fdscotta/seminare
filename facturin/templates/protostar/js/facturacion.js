@@ -1,10 +1,22 @@
+jQuery().ready(function($) {
+	$("input").prop('disabled', true); 
+});
 jQuery(function($) {
+	
+	$("#user_fac").change(function(e){
+		if($(this).val()== '') {
+			$("input").prop('disabled', true); 
+		}else{
+			$("input").prop('disabled', false); 
+			$("#articulosCompra input").prop('disabled', true); 
+		}
+	});
 
 	$("#cancelar_venta").click(function(){
 		$("#grilla tbody tr").remove();
 		fn_cantidad();
 		SumarColumna("grilla", 4);
-	});
+	}); 
 
 	$("#limpiar").click(function(){
 		$("#agregar").prop('disabled', true); 
@@ -131,14 +143,14 @@ $("#grilla tbody tr").each(function (index) {
 var columnaTabla = campo1 + '@' + campo2 + '@' + campo3 + '@' + campo4 + '@' + campo5;
 venta = columnaTabla + "//" + venta; 		
 })
-
+user_fac = $('#user_fac').val();
 // Do Search
 if(venta !== ''){
 	$.ajax({
 		type: "POST",
 		url:"index.php?option=com_facturacion&task=facturacionform.confirmaVenta",
 		cache: false,
-		data: { query: venta },
+		data: { query: venta, cliente:user_fac },
 		dataType: "json", 
 		success:function(data){
 			$('#popup').fadeOut('slow');
