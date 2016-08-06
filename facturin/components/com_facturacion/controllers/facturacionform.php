@@ -325,6 +325,8 @@ public function confirmaVenta(){
     $arrayVenta = explode("//", $venta);
     $listaVenta = array();
 
+    $cliente = $_REQUEST['cliente'];
+
     date_default_timezone_set('America/Argentina/Buenos_Aires');		
     $dt = new DateTime();
     $fecha = $dt->format('Y-m-d H:i:s');
@@ -348,7 +350,7 @@ public function confirmaVenta(){
 
 // Create a new query object.
     $query = $db->getQuery(true);
-    $query = "INSERT INTO u5f7a_comprobantes VALUES ('',1,$id_usuario,'".$fecha."',1,$total,'',0)";
+    $query = "INSERT INTO u5f7a_comprobantes VALUES ('',1,'".$fecha."',1,$total,'',0,$id_usuario,$cliente)";
 
     $db->setQuery($query);
     $db->query();
