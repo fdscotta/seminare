@@ -297,7 +297,7 @@ class FacturacionModelFacturacionForm extends JModelForm
 	   // $results = $db->loadAssocList();
 
 	    if($rows){
-			return  JHTML::_('select.genericlist', $options, 'jform[category]', 'class = "nourritures"', 'value','text', 'Seleccione uno...' );	    
+			return  JHTML::_('select.genericlist', $options, 'user_fac', 'class = "user_fac"', 'value','text', 'Seleccione uno...' );	    
 		} 
 
 	}      
