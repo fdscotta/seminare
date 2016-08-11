@@ -1,0 +1,21 @@
+function llenar_tabla_comprobantes(data) {
+	$j('#tabla_res tbody').remove();
+	codigo_tabla = "<tbody>"
+	contador = 0;
+	data.length;
+	$j.each( data, function( i, val ) {
+		codigo_tabla = codigo_tabla+"<tr><td>"+val.gc_fcom+"</td>";
+		codigo_tabla = codigo_tabla+"<td><a href='"+$j('#url_link_reporte').val()+"&gc_pzv="+val.gc_pzv+"&gc_cuit="+val.gc_cuit+"' title='Imprimir Comprobante'  target='_blank'>"+val.name+"</a></td>";
+		codigo_tabla = codigo_tabla+"<td>"+val.gc_tcom+"</td>";
+		codigo_tabla = codigo_tabla+"<td class='importe_r'>$"+val.gc_tot_grav+"</td>";
+		codigo_tabla = codigo_tabla+"<td class='importe_r'>$"+val.gc_tot_iva+"</td>";
+		codigo_tabla = codigo_tabla+"<td class='importe_r'>$"+val.gc_tot_iiob+"</td>";
+		codigo_tabla = codigo_tabla+"<td class='importe_r'>$"+val.otros+"</td>";
+		codigo_tabla = codigo_tabla+"<td class='importe_r'>$"+val.gc_tot_c+"</td>";
+		codigo_tabla = codigo_tabla+"<td style='text-align: center;'><div><a href='"+$j('#url_link_reporte').val()+"&gc_pzv="+val.gc_pzv+"&gc_cuit="+val.gc_cuit+"' title='Imprimir Comprobante'  target='_blank'><i class='icon-print'></i></a></div>";
+		codigo_tabla = codigo_tabla+"</td></tr>";
+	});
+	codigo_tabla = codigo_tabla+"</tbody>";
+	$j("#tabla_res").append(codigo_tabla);
+	$j("#tabla_res").fadeIn("slow");
+}

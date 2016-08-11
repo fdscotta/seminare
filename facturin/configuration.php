@@ -60,4 +60,6 @@ class JConfig {
 	public $tmp_path = 'C:\\xampp\\htdocs\\facturin/tmp';
 	public $lifetime = '15';
 	public $session_handler = 'database';
+	public $path_ajaxphp = '/facturin/modules/mod_comprobantes/ajax-comprobantes.php?';
+	public $dias_de_evaluacion = 90;
 }
