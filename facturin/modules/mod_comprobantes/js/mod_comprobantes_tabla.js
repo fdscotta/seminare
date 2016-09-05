@@ -8,7 +8,7 @@ function llenar_tabla_comprobantes(data) {
 		codigo_tabla = codigo_tabla+"<td><a href='' title='Ver Cliente'>"+val.name+"</a></td>";
 		codigo_tabla = codigo_tabla+"<td>"+val.id_tipo_comp+"</td>";
 		codigo_tabla = codigo_tabla+"<td class='importe_r'>$"+val.total+"</td>";
-		codigo_tabla = codigo_tabla+"<td style='text-align: center;'><div><a href='' title='Dar de Baja'  target='_blank'><i class='icon-remove'></i></a>";
+		codigo_tabla = codigo_tabla+"<td style='text-align: center;'><div><a href='index.php?option=com_facturacion&task=facturacionform.bajaComprobante&id_comp=1' title='Dar de Baja'  target='_self'><i class='icon-remove'></i></a>";
 		codigo_tabla = codigo_tabla+"<a href='' title='Ver Comprobante'  target='_blank'><i class='icon-search'></i></a></div>";
 		codigo_tabla = codigo_tabla+"</td></tr>";
 	});

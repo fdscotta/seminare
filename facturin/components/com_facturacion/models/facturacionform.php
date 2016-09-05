@@ -268,6 +268,7 @@ class FacturacionModelFacturacionForm extends JModelForm
         
         return true;
     }
+
 	public function getListaUsuarios($tipo_user){ 
 
 	// Get a db connection.
@@ -301,4 +302,50 @@ class FacturacionModelFacturacionForm extends JModelForm
 		} 
 
 	}      
+
+	public function bajaComprobante($id_comprobante){ 
+
+	// Get a db connection.
+	    $db = JFactory::getDbo();
+
+	// Create a new query object.
+	    $query = $db->getQuery(true);
+
+	// Select all records from the user profile table where key begins with "custom.".
+	// Order it by the ordering field.
+        $query = $db->getQuery(true);
+        $query = "INSERT INTO u5f7a_comprobantes (
+				  `id_comprobante`,
+				  `id_tipo_comp`,
+				  `fecha_emicion`,
+				  `id_tipo_pago`,
+				  `total`,
+				  `fecha_vto`,
+				  `id_proveedor`,
+				  `id_usuario`,
+				  `cliente`
+				) 
+				SELECT 
+				  0,
+				  2,
+				  now(),
+				  `id_tipo_pago`,
+				  `total`,
+				  `fecha_vto`,
+				  `id_proveedor`,
+				  `id_usuario`,
+				  `cliente` 
+				FROM
+				  `facturin`.`u5f7a_comprobantes` 
+				WHERE id_comprobante = ".$id_comprobante;
+
+        $db->setQuery($query);
+        
+        $rows = $db->loadObjectList();
+	    
+	    if($rows){
+			return  true;	    
+		} 
+
+	}      	
 }

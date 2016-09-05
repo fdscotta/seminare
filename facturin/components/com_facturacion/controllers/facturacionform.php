@@ -396,6 +396,11 @@ function seleccionArticulo(){
 
 }	
 
+function bajaComprobante(){
+
+    $model = $this->getModel('FacturacionForm', 'FacturacionModel');
+    $model->bajaComprobante($_REQUEST['id_comp']);
+}   
 
 
 }
