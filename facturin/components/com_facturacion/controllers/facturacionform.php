@@ -399,7 +399,17 @@ function seleccionArticulo(){
 function bajaComprobante(){
 
     $model = $this->getModel('FacturacionForm', 'FacturacionModel');
-    $model->bajaComprobante($_REQUEST['id_comp']);
+    if($model->bajaComprobante($_REQUEST['id_comp'])){
+        // Redirect to the list screen.
+        $this->setMessage("El comprobante ".$_REQUEST['id_comp']." se dio de baja");
+        $url = 'index.php/buscar-comprobantes';
+        $this->setRedirect($url);
+    }else{
+        $this->setMessage("El comprobante ".$_REQUEST['id_comp']." ya esta dado de baja");
+        $url = 'index.php/buscar-comprobantes';
+        $this->setRedirect($url);        
+    }
+
 }   
 
 

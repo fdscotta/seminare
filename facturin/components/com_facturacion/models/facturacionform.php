@@ -311,41 +311,54 @@ class FacturacionModelFacturacionForm extends JModelForm
 	// Create a new query object.
 	    $query = $db->getQuery(true);
 
-	// Select all records from the user profile table where key begins with "custom.".
-	// Order it by the ordering field.
-        $query = $db->getQuery(true);
-        $query = "INSERT INTO u5f7a_comprobantes (
-				  `id_comprobante`,
-				  `id_tipo_comp`,
-				  `fecha_emicion`,
-				  `id_tipo_pago`,
-				  `total`,
-				  `fecha_vto`,
-				  `id_proveedor`,
-				  `id_usuario`,
-				  `cliente`
-				) 
-				SELECT 
-				  0,
-				  2,
-				  now(),
-				  `id_tipo_pago`,
-				  `total`,
-				  `fecha_vto`,
-				  `id_proveedor`,
-				  `id_usuario`,
-				  `cliente` 
-				FROM
-				  `facturin`.`u5f7a_comprobantes` 
-				WHERE id_comprobante = ".$id_comprobante;
+		$query->select('*');
+	    $query->from($db->quoteName('#__comprobantes'));
+	    $query->where('id_comprobante ='.$id_comprobante . ' AND id_tipo_comp = 2');
+	    $db->setQuery($query);
+        $db->execute();
+        $rows = $db->getNumRows();
 
-        $db->setQuery($query);
-        
-        $rows = $db->loadObjectList();
-	    
-	    if($rows){
-			return  true;	    
-		} 
+        if ($rows == 0) {
+		// Select all records from the user profile table where key begins with "custom.".
+		// Order it by the ordering field.
+	        $query = $db->getQuery(true);
+	        $query = "INSERT INTO u5f7a_comprobantes (
+					  `id_comprobante`,
+					  `id_tipo_comp`,
+					  `fecha_emicion`,
+					  `id_tipo_pago`,
+					  `total`,
+					  `fecha_vto`,
+					  `id_proveedor`,
+					  `id_usuario`,
+					  `cliente`
+					) 
+					SELECT 
+					  id_comprobante,
+					  2,
+					  now(),
+					  `id_tipo_pago`,
+					  `total`,
+					  `fecha_vto`,
+					  `id_proveedor`,
+					  `id_usuario`,
+					  `cliente` 
+					FROM
+					  `facturin`.`u5f7a_comprobantes` 
+					WHERE id_comprobante = ".$id_comprobante;
+
+	        $db->setQuery($query);
+	        $db->execute();
+	        $rows = $db->getAffectedRows();
+
+		    if($rows == 1){
+				return true;	    
+			}else{
+				return false;
+			}
+		}else {
+			return false;
+		}
 
 	}      	
 }

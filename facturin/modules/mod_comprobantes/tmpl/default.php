@@ -42,7 +42,7 @@ function reset() {
 	float:right;
 }
 </style>
-<input id="id_usuario" name="id_usuario" type="hidden" value="456">
+<input id="id_usuario" name="id_usuario" type="hidden" value="457">
 <input id="url_path_ajaxphp" name="url_path_ajaxphp" type="hidden" value="<?php echo $parametros['path_ajaxphp'];?>">
 <div class="widget blue jmoddiv" >
 	<div class="widget-title">
@@ -59,8 +59,8 @@ function reset() {
 						<div id="sample_1_length" class="dataTables_length">
 							<label>
 								<select size="1" name="limite" id="limite" aria-controls="sample_1" class="input-mini" onchange="ajax(2);">
-									<option value="5" selected="selected">5</option>
-									<option value="10">10</option>
+									<option value="5">5</option>
+									<option value="10" selected="selected">10</option>
 									<option value="20">20</option>
 								</select>
 							Resultados por p&aacute;gina
@@ -71,6 +71,7 @@ function reset() {
 				<table class="table table-striped table-hover table-bordered dataTable " name="tabla_res" id="tabla_res">
 					<thead>
 						<tr>
+							<th>Id</th>
 							<th>Fecha</th>
 							<th>Comprobantes</th>
 							<th>Tipo</th>
