@@ -33,11 +33,10 @@ class FacturacionViewFacturacion extends JViewLegacy {
         $this->state = $this->get('State');
         
         $this->params = $app->getParams('com_facturacion');
-
-        if (!empty($this->item)) {
-            
-        }
-
+        $model = $this->getModel();
+        
+        $this->item = $model->getItem(8);
+        $this->item_det = $model->getItem_det(8);
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {
