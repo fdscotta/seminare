@@ -34,9 +34,9 @@ class FacturacionViewFacturacion extends JViewLegacy {
         
         $this->params = $app->getParams('com_facturacion');
         $model = $this->getModel();
-        
-        $this->item = $model->getItem(8);
-        $this->item_det = $model->getItem_det(8);
+
+        $this->item = $model->getItem(JFactory::getApplication()->input->get->get('id'),JFactory::getApplication()->input->get->get('id_tip'));
+        $this->item_det = $model->getItem_det(JFactory::getApplication()->input->get->get('id'),JFactory::getApplication()->input->get->get('id_tip'));
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {

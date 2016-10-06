@@ -173,18 +173,18 @@ class FacturacionModelFacturacion extends JModelItem {
         return $table->delete($id);
     }
 
-    public function getItem($id) {
+    public function getItem($id,$id_tip) {
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query
                 ->select('*')
                 ->from('#__comprobantes')
-                ->where('id_comprobante = ' . $id . ' AND id_tipo_comp = 1');
+                ->where('id_comprobante = ' . $id . ' AND id_tipo_comp = '.$id_tip);
         $db->setQuery($query);
         return $db->loadObject();
     }
     
-    public function getItem_det($id) {
+    public function getItem_det($id,$id_tip) {
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query
