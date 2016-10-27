@@ -60,6 +60,7 @@ if(cantidad !== ''){
 		if(data==""){
 			var valorCampo = $("#id_articulo").val();
 			$('#frm_facturacion')[0].reset();
+			$('#id_articulo').focus();
 			//sinResultado(valorCampo);	
 		} else {
 			conResultado(data);		  
@@ -79,6 +80,7 @@ if(cantidad !== ''){
 				}, 
 				error: function() { 
 					mostrarArticulo("");
+
 				}
 			});
 		}

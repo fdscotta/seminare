@@ -51,6 +51,8 @@ $lang->load('com_facturacion', JPATH_ADMINISTRATOR);
 				echo "<th>".$value->cantidad."</th>";
 				echo "<th>".$value->precio."</th>";
 				echo "<th>".$value->total."</th>";
+				echo "<td style='text-align: center;'><div>";
+				echo "</div></td>";		
 				echo "</tr>";
 			}?>
 			</tbody>

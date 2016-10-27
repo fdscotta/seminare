@@ -331,7 +331,10 @@ class FacturacionModelFacturacionForm extends JModelForm
 					  `fecha_vto`,
 					  `id_proveedor`,
 					  `id_usuario`,
-					  `cliente`
+					  `cliente`,
+					  `editar`,
+					  `baja`,
+					  `cerrar`
 					) 
 					SELECT 
 					  id_comprobante,
@@ -342,7 +345,10 @@ class FacturacionModelFacturacionForm extends JModelForm
 					  `fecha_vto`,
 					  `id_proveedor`,
 					  `id_usuario`,
-					  `cliente` 
+					  `cliente` ,
+					  1,
+					  0,
+					  1
 					FROM
 					  `facturin`.`u5f7a_comprobantes` 
 					WHERE id_comprobante = ".$id_comprobante;

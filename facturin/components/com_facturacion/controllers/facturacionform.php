@@ -350,7 +350,7 @@ public function confirmaVenta(){
 
 // Create a new query object.
     $query = $db->getQuery(true);
-    $query = "INSERT INTO u5f7a_comprobantes VALUES ('',1,'".$fecha."',1,$total,'',0,$id_usuario,$cliente)";
+    $query = "INSERT INTO u5f7a_comprobantes VALUES ('',1,'".$fecha."',1,$total,'',0,$id_usuario,$cliente,1,1,1)";
 
     $db->setQuery($query);
     $db->query();

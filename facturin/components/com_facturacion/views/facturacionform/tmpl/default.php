@@ -33,64 +33,18 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
 <script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery.validate.1.5.2.js"></script>
 <link href="/facturin/templates/protostar/css/estilo.css" rel="stylesheet" type="text/css" />
 
-<!-- validador 
-
-  <script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery-validate.js"></script>
-<script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery-validate.min.js"></script>
-<script type="text/javascript">
-  
-  // When the browser is ready...
-  $(function() {
-  
-    // Setup form validation on the #register-form element
-    $("#frm_facturacion").validate({
-    
-        // Specify the validation rules
-        rules: {
-            id_articulo: "required"
-        },
-        
-        // Specify the validation error messages
-        messages: {
-            id_articulo: "Please enter your first name"
-        },
-        
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
-
-  });
-  
-  </script>
-   <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-  <script type="text/javascript">
- $("#frm_facturacion").validate({
-      rules: {
-         id_articulo: {
-            required: true
-               }
-         },
-         messages: {
-            id_articulo: "Required Field"
-         }
-     });	
-  </script>
--->
 
 <script type="text/javascript">
     getScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function() {
         jQuery(document).ready(function() {
             jQuery('#form-facturacion').submit(function(event) {
-                
-            });
-
-            
+             
+            });            
         });
     });
 
 </script>
+
 <?php echo $this->usuarios;?>
 <div class="facturacion-edit front-end-edit">
     <?php if (!empty($this->item->id)): ?>
@@ -181,25 +135,6 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
 </div>				
 </div>				
 
-
-<!--
-    <form id="form-facturacion" action="<?php echo JRoute::_('index.php?option=com_facturacion&task=facturacion.save'); ?>" method="post" class="form-validate form-horizontal" enctype="multipart/form-data">
-	
-	        <div class="control-group" id="registrar_compra">
-            <div class="controls">
-                <button type="submit" class="validate btn btn-primary"><?php echo JText::_('JSUBMIT'); ?></button>
-                <a class="btn" href="<?php echo JRoute::_('index.php?option=com_facturacion&task=facturacionform.cancel'); ?>" title="<?php echo JText::_('JCANCEL'); ?>"><?php echo JText::_('JCANCEL'); ?></a>
-            </div>
-        </div>
-        
-        <input type="hidden" name="option" value="com_facturacion" />
-        <input type="hidden" name="task" value="facturacionform.save" />
-        <?php echo JHtml::_('form.token'); ?>
-	</form>
--->
-
-
-
 <script language="javascript" >
 var ventana;
 
@@ -223,7 +158,6 @@ ventana.focus( );
            <h2>Metodo de Pago</h2>
 				<div class="total_compra">
 					<h4>Total de la compra: </h4><h4 id="totalFacturacion_confirmar"></h4>
-<!--					<input type="number" class="form-control" id="totalFacturacion_confirmar"  name="totalFacturacion_confirmar" value="" disabled> -->
 				</div>
 				<div class="control-group">
 					<label for="tipo_pago" class="col-lg-2 control-label">Tipo de pago: </label>
@@ -252,4 +186,3 @@ ventana.focus( );
         </div>
     </div>
 </div>
-<!-- ----------------- -->

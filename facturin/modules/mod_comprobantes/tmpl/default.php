@@ -21,6 +21,10 @@ $j(document).ready(function() {
    ajax(2);
 });
 
+$j(document).on('change','#user_fac',function(){
+   ajax(2);
+});
+
 function reset() {
 	$j('#sample_1_info').hide();
 	$j('#tabla_res tbody').remove();
@@ -42,8 +46,8 @@ function reset() {
 	float:right;
 }
 </style>
-<input id="id_usuario" name="id_usuario" type="hidden" value="457">
 <input id="url_path_ajaxphp" name="url_path_ajaxphp" type="hidden" value="<?php echo $parametros['path_ajaxphp'];?>">
+<?php echo $parametros['usuarios'];?>
 <div class="widget blue jmoddiv" >
 	<div class="widget-title">
 		<h4><i class="icon-list-alt"></i> Comprobantes de los ultimos 3 meses </h4>

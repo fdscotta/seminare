@@ -1,7 +1,7 @@
 function ajax(paginacion){
 	pag=paginar(paginacion,Number($j('#limite option:selected').val()));
 	limit="&limite="+$j('#limite option:selected').val();
-	user="&user="+$j('#id_usuario').val();
+	user="&user="+$j('#user_fac').val();
 
 	$j.ajax
       ({
