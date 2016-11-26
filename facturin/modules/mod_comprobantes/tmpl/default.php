@@ -18,7 +18,8 @@ defined('_JEXEC') or die;
   <link rel="stylesheet" href="modules/mod_comprobantes/css/comprobantes.css" type="text/css">
 <script>
 $j(document).ready(function() {
-   ajax(2);
+    $j("#user_fac").val("456");  
+    ajax(2);
 });
 
 $j(document).on('change','#user_fac',function(){
@@ -49,9 +50,6 @@ function reset() {
 <input id="url_path_ajaxphp" name="url_path_ajaxphp" type="hidden" value="<?php echo $parametros['path_ajaxphp'];?>">
 <?php echo $parametros['usuarios'];?>
 <div class="widget blue jmoddiv" >
-	<div class="widget-title">
-		<h4><i class="icon-list-alt"></i> Comprobantes de los ultimos 3 meses </h4>
-	</div>
 	<div class="widget-body" style="display: block;">
 		<div class="row-fluid">
 			<div class="metro-nav">
