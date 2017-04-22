@@ -231,7 +231,6 @@ public function remove() {
 function buscarCodBarra(){
 
     $codigo_barra = $_REQUEST['query'];
-
 // Get a db connection.
     $db = JFactory::getDbo();
 
@@ -242,27 +241,38 @@ function buscarCodBarra(){
 // Order it by the ordering field.
     $query->select($db->quoteName(array('id','title','extra_fields')));
     $query->from($db->quoteName('#__k2_items'));
-    $query->where($db->quoteName('id') . ' = ' . $codigo_barra);
 
 // Reset the query using our newly populated query object.
     $db->setQuery($query);
 
 // Load the results as a list of stdClass objects (see later for more options on retrieving data).
-    $results = $db->loadRow();
+    $results = $db->loadRowList();
 
     if($results){
+        foreach ($results as $result) {
 // los campos extra los decodifico	
-        $JSON =  $results[2];   
+        $JSON =  $result[2];   
+        $obj = json_decode($JSON);     
 
-        $obj = json_decode($JSON); 		
-        $array = array(
-//				'descripcion' => $obj[0]->value,
-//				'val' => $obj[1]->value,
-//				'precio' => $obj[3]->value
-            'descripcion' => $results[1],
-            'val' => $obj[0]->value,
-            'precio' => $obj[2]->value
-            );
+        $pos = strpos(strtoupper($result[1]),strtoupper(trim($codigo_barra)));
+
+        if(trim($obj[0]->value) == trim($codigo_barra)) {
+            $array = array(
+                'descripcion' => $result[1],
+                'val' => $obj[0]->value,
+                'precio' => $obj[2]->value
+                );
+            echo json_encode($array);die;        
+        } elseif($pos !== false) {
+            $array = array(
+                'descripcion' => $result[1],
+                'val' => $obj[0]->value,
+                'precio' => $obj[2]->value
+                );
+            echo json_encode($array);die;        
+        }
+
+        }
 // encontro un articulo
         echo json_encode($array);die; 
     } else {
@@ -285,8 +295,8 @@ function buscarCodLike(){
 // Order it by the ordering field.
     $query->select($db->quoteName(array('id','title','extra_fields')));
     $query->from($db->quoteName('#__k2_items'));
-    $query->where($db->quoteName('id') . ' = ' . $codigo_barra . 'OR' . $db->quoteName('title') . ' like %' . $codigo_barra .'%');
-
+    //$query->where($db->quoteName('id') . ' = ' . $codigo_barra . 'OR' . $db->quoteName('title') . ' like %' . $codigo_barra .'%');
+    echo "<pre>";print_r($query);echo "</pre>";die;
 // Reset the query using our newly populated query object.
     $db->setQuery($query);
 
@@ -298,11 +308,10 @@ function buscarCodLike(){
 // los campos extra los decodifico  
             $JSON =  $results[2];   
 
-            $obj = json_decode($JSON);      
+            $obj = json_decode($JSON); 
+            echo "<pre>";print_r($obj);echo "</pre>";
+
             $array = array(
-//              'descripcion' => $obj[0]->value,
-//              'val' => $obj[1]->value,
-//              'precio' => $obj[3]->value
                 'descripcion' => $results[1],
                 'val' => $obj[0]->value,
                 'precio' => $obj[2]->value
@@ -402,11 +411,11 @@ function bajaComprobante(){
     if($model->bajaComprobante($_REQUEST['id_comp'])){
         // Redirect to the list screen.
         $this->setMessage("El comprobante ".$_REQUEST['id_comp']." se dio de baja");
-        $url = 'index.php/buscar-comprobantes';
+        $url = 'index.php/buscar-comprobantes?id_emp='.$_REQUEST['id_emp'];
         $this->setRedirect($url);
     }else{
         $this->setMessage("El comprobante ".$_REQUEST['id_comp']." ya esta dado de baja");
-        $url = 'index.php/buscar-comprobantes';
+        $url = 'index.php/buscar-comprobantes?id_emp='.$_REQUEST['id_emp'];
         $this->setRedirect($url);        
     }
 

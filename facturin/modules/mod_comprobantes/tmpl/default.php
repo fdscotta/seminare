@@ -16,9 +16,15 @@ defined('_JEXEC') or die;
   <script  src="modules/mod_comprobantes/js/mod_comprobantes_tabla.js"></script>
   <script  src="modules/mod_comprobantes/js/paginador.js"></script>
   <link rel="stylesheet" href="modules/mod_comprobantes/css/comprobantes.css" type="text/css">
+<?php 
+if (empty($_REQUEST['id_emp'])) {
+	$_REQUEST['id_emp'] = "";
+	}
+?>
 <script>
+
 $j(document).ready(function() {
-    $j("#user_fac").val("456");  
+    $j("#user_fac").val(<?php echo $_REQUEST['id_emp'];?>);  
     ajax(2);
 });
 
@@ -32,7 +38,6 @@ function reset() {
 	$j("#paginador").hide();
 }
 </script>
-
 <style>
 .filtros_bus {
 	width:33%;
