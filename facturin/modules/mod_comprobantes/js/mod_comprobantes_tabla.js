@@ -18,7 +18,7 @@ function llenar_tabla_comprobantes(data) {
 				codigo_tabla = codigo_tabla+"<a href='/facturin/index.php?option=com_facturacion&view=facturacionEdit&id="+val.id_comprobante+"&id_tip="+val.id_tip+"' title='Editar Comprobante'  target='_blank'><i class='icon-edit'></i></a>";
 			}
 			if(val.cerrar == 1){
-				codigo_tabla = codigo_tabla+"<a href='/facturin/index.php?option=com_facturacion&view=facturacionClose&id="+val.id_comprobante+"&id_tip="+val.id_tip+"&id_emp="+$j('#user_fac').val()+"' title='Pagar'  target='_blank'><i class='icon-ok' ></i></a>";
+				codigo_tabla = codigo_tabla+"<a href='/facturin/index.php?option=com_facturacion&task=facturacionform.pagarComprobante&id_comp="+val.id_comprobante+"&id_emp="+$j('#user_fac').val()+"' title='Pagar'  target='_self'><i class='icon-ok' ></i></a>";
 			}
 		}
 		codigo_tabla = codigo_tabla+"<a href='/facturin/index.php?option=com_facturacion&view=facturacion&id="+val.id_comprobante+"&id_tip="+val.id_tip+"' title='Ver Comprobante'  target='_blank'><i class='icon-search'></i></a></div>";

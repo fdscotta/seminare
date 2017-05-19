@@ -367,4 +367,38 @@ class FacturacionModelFacturacionForm extends JModelForm
 		}
 
 	}      	
+
+	public function pagarComprobante($id_comprobante){ 
+
+	// Get a db connection.
+	    $db = JFactory::getDbo();
+
+	// Create a new query object.
+	    $query = $db->getQuery(true);
+
+		$fields = array(
+		    $db->quoteName('editar') . ' = 0',
+		    $db->quoteName('baja') . ' = 0',
+		    $db->quoteName('cerrar') . ' = 0'
+		);
+
+		$conditions = array(
+		    $db->quoteName('id_comprobante') . ' = ' . $id_comprobante, 
+		    $db->quoteName('id_tipo_comp') . ' = 1'
+		);
+
+		$query->update($db->quoteName('#__comprobantes'));
+	    $query->set($fields);
+	    $query->where($conditions);
+	    $db->setQuery($query);
+
+	    if($db->execute()){
+	    	return true;
+	    }else{
+	    	return false;
+	    }
+
+
+
+	}      	
 }

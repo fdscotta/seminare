@@ -37,24 +37,24 @@ jQuery(function($) {
 
 		$(this).focus();
 
-// Set Search String
-var precio = document.getElementById("precio").value;
-var cantidad = $(this).val();
-// Do Search
-if(cantidad !== ''){
-	$.ajax({
-		type: "POST",
-		url:"/facturin/index.php?option=com_ajax&task=funcion2&format=RAW",
-		cache: false,
-		data: { precio: precio, cantidad:cantidad},
-		dataType: "json", 
-		success:function(data){
-			mostrarTotal(data);
-		}, 
-		error: function() { alert('Se ha producido un error'); }
+		// Set Search String
+		var precio = document.getElementById("precio").value;
+		var cantidad = $(this).val();
+		// Do Search
+		if(cantidad !== ''){
+			$.ajax({
+				type: "POST",
+				url:"/facturin/index.php?option=com_ajax&task=funcion2&format=RAW",
+				cache: false,
+				data: { precio: precio, cantidad:cantidad},
+				dataType: "json", 
+				success:function(data){
+					mostrarTotal(data);
+				}, 
+				error: function() { alert('Se ha producido un error'); }
+			});
+		}return false;
 	});
-}return false;
-});
 
 	function mostrarArticulo(data){
 		if(data==""){
@@ -90,6 +90,7 @@ if(cantidad !== ''){
 		$("#sinResultados").hide();	
 		$("#descripcion").val(data.descripcion);
 		$("#precio").val(data.precio); 
+		$("#codigo").val(data.val)
 		$("#total").val("");		
 		$("#cantidad").val("");		 
 	}
@@ -107,7 +108,7 @@ if(cantidad !== ''){
 			$("#agregar").prop('disabled', true); 
 		} else {
 			document.getElementById("total").value=data;
-			if  (( $("#descripcion").val().length > 1) && ( $("#precio").val().length > 1) && ( $("#total").val().length > 1)) {
+			if  (( $("#descripcion").val().length > 0) && ( $("#precio").val().length > 0) && ( $("#total").val().length > 0)) {
 				$("#agregar").prop('disabled', false); 
 				$("#agregar").focus(); 
 			} else {
@@ -118,55 +119,55 @@ if(cantidad !== ''){
 
 // enviar datos para guardar
 $("#confirmar_pago").click(function(){
-// obtengo los datos de la tabla
-var venta = "";
-$("#grilla tbody tr").each(function (index) {
-	var campo1, campo2, campo3;
-	$(this).children("td").each(function (index2) {
-		switch (index2) {
-			case 0:
-			campo1 = $(this).text();
-			break;
-			case 1:
-			campo2 = $(this).text();
-			break;
-			case 2:
-			campo3 = $(this).text();
-			break;
-			case 3:
-			campo4 = $(this).text();
-			break;
-			case 4:
-			campo5 = $(this).text();
-			break;
-		}
+	// obtengo los datos de la tabla
+	var venta = "";
+	$("#grilla tbody tr").each(function (index) {
+		var campo1, campo2, campo3;
+		$(this).children("td").each(function (index2) {
+			switch (index2) {
+				case 0:
+				campo1 = $(this).text();
+				break;
+				case 1:
+				campo2 = $(this).text();
+				break;
+				case 2:
+				campo3 = $(this).text();
+				break;
+				case 3:
+				campo4 = $(this).text();
+				break;
+				case 4:
+				campo5 = $(this).text();
+				break;
+			}
+		})
+	// armo un array con todas las filas
+	var columnaTabla = campo1 + '@' + campo2 + '@' + campo3 + '@' + campo4 + '@' + campo5;
+	venta = columnaTabla + "//" + venta; 		
 	})
-// armo un array con todas las filas
-var columnaTabla = campo1 + '@' + campo2 + '@' + campo3 + '@' + campo4 + '@' + campo5;
-venta = columnaTabla + "//" + venta; 		
-})
-user_fac = $('#user_fac').val();
-// Do Search
-if(venta !== ''){
-	$.ajax({
-		type: "POST",
-		url:"index.php?option=com_facturacion&task=facturacionform.confirmaVenta",
-		cache: false,
-		data: { query: venta, cliente:user_fac },
-		dataType: "json", 
-		success:function(data){
-			$('#popup').fadeOut('slow');
-			$('#frm_facturacion')[0].reset();
-			$('tbody tr').remove();
-			$('#totalFacturacion').text("0");
-			$('#span_cantidad').text("0");
-			$('#totalFacturacion_titulo').text("0");
-			$('#id_articulo').focus();
-		}, 
-		error: function(data) { mostrarArticulo("");}
-	});
-}
-return false;
+	user_fac = $('#user_fac').val();
+	// Do Search
+	if(venta !== ''){
+		$.ajax({
+			type: "POST",
+			url:"index.php?option=com_facturacion&task=facturacionform.confirmaVenta",
+			cache: false,
+			data: { query: venta, cliente:user_fac },
+			dataType: "json", 
+			success:function(data){
+				$('#popup').fadeOut('slow');
+				$('#frm_facturacion')[0].reset();
+				$('tbody tr').remove();
+				$('#totalFacturacion').text("0");
+				$('#span_cantidad').text("0");
+				$('#totalFacturacion_titulo').text("0");
+				$('#id_articulo').focus();
+			}, 
+			error: function(data) { mostrarArticulo("");}
+		});
+	}
+	return false;
 
 });
 

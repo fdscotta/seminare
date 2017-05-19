@@ -13,7 +13,7 @@
             
             function fn_agregar(){
                 cadena = "<tr>";
-                cadena = cadena + "<td>" + $("#id_articulo").val() + "</td>";
+                cadena = cadena + "<td>" + $("#codigo").val() + "</td>";
                 cadena = cadena + "<td>" + $("#descripcion").val() + "</td>";
                 cadena = cadena + "<td>" + $("#cantidad").val() + "</td>";
                 cadena = cadena + "<td>" + $("#precio").val() + "</td>";

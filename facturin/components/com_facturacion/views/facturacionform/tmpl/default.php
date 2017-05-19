@@ -27,8 +27,8 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="/facturin/templates/protostar/js/facturacion.js" type="text/javascript"></script>
-<script src="/facturin/templates/protostar/js/script.js" type="text/javascript"></script>
+<script src="/facturin/templates/protostar/js/facturacion.js?2" type="text/javascript"></script>
+<script src="/facturin/templates/protostar/js/script.js?2" type="text/javascript"></script>
 <script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery-1.3.2.min.js"></script>
 <script language="javascript" type="text/javascript" src="/facturin/templates/protostar/js/jquery.validate.1.5.2.js"></script>
 <link href="/facturin/templates/protostar/css/estilo.css" rel="stylesheet" type="text/css" />
@@ -88,12 +88,15 @@ $doc->addScript(JUri::base() . '/components/com_facturacion/assets/js/form.js');
 		</div>
 	  </div>   
 	  
+	  <input type="hidden" id="codigo" >
+
 	   <div class="control-group">
 		<label for="total" class="col-lg-2 control-label">Total</label>
 		<div class="controls">
 		<input type="text" class="form-control" id="total" placeholder="Total ..." disabled>
 		</div>
 	  </div>   
+
 	</div>   
       <div id='jqxWidget' style="font-size: 13px; font-family: Verdana; float: left;">
         <div id="jqxgrid">

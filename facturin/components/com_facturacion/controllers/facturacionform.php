@@ -421,5 +421,20 @@ function bajaComprobante(){
 
 }   
 
+function pagarComprobante(){
+
+    $model = $this->getModel('FacturacionForm', 'FacturacionModel');
+    if($model->pagarComprobante($_REQUEST['id_comp'])){
+        // Redirect to the list screen.
+        $this->setMessage("El pago del comprobante ".$_REQUEST['id_comp']." se completo");
+        $url = 'index.php/buscar-comprobantes?id_emp='.$_REQUEST['id_emp'];
+        $this->setRedirect($url);        
+    }else{
+        $this->setMessage("El pago del comprobante ".$_REQUEST['id_comp']."  no se completo", 'warning');
+        $url = 'index.php/buscar-comprobantes?id_emp='.$_REQUEST['id_emp'];
+        $this->setRedirect($url);        
+    }
+
+}   
 
 }
