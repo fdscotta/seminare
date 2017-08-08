@@ -12,7 +12,11 @@ defined('_JEXEC') or die;
 // Note. It is important to remove spaces between elements.
 ?>
 <?php // The menu class is deprecated. Use nav instead. ?>
+<<<<<<< HEAD
 <div class="nav menu<?php echo $class_sfx;?>"<?php
+=======
+<ul class="nav nav-pills menu<?php echo $class_sfx;?>"<?php
+>>>>>>> 4dc4c23bebf399855b75e98c14b58cebb8f987f9
 	$tag = '';
 
 	if ($params->get('tag_id') != null)
@@ -66,10 +70,17 @@ foreach ($list as $i => &$item)
 
 	if (!empty($class))
 	{
+<<<<<<< HEAD
 		$class = ' class=" cuadro_menu ' . trim($class) . '"';
 	}
 
 	echo '<div' . $class . '>';
+=======
+		$class = ' class="' . trim($class) . '"';
+	}
+
+	echo '<li role="presentation"' . $class . '>';
+>>>>>>> 4dc4c23bebf399855b75e98c14b58cebb8f987f9
 
 	// Render the menu item.
 	switch ($item->type) :
@@ -93,13 +104,22 @@ foreach ($list as $i => &$item)
 	elseif ($item->shallower)
 	{
 		// The next item is shallower.
+<<<<<<< HEAD
 		echo '</div>';
 		echo str_repeat('</div></div>', $item->level_diff);
+=======
+		echo '</li>';
+		echo str_repeat('</ul></li>', $item->level_diff);
+>>>>>>> 4dc4c23bebf399855b75e98c14b58cebb8f987f9
 	}
 	else
 	{
 		// The next item is on the same level.
+<<<<<<< HEAD
 		echo '</div>';
+=======
+		echo '</li>';
+>>>>>>> 4dc4c23bebf399855b75e98c14b58cebb8f987f9
 	}
 }
 ?></ul>
